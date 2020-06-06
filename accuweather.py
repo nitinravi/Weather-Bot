@@ -17,3 +17,16 @@ def city_id(city):
     data = res.read()
     data = json.loads(data.decode("utf-8"))
     return str(data[0]["Key"])
+
+def weatherinfo(city):
+    payload = ''
+    headers = {}
+
+    link = "/forecasts/v1/daily/1day/"
+    id = city_id(city)
+    citylink = link + id + "?apikey=" + key
+    conn.request("GET", citylink, payload, headers)
+    res = conn.getresponse()
+    data = res.read()
+    data = json.loads(data.decode("utf-8"))
+    return data
