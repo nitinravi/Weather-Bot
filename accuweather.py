@@ -18,6 +18,7 @@ def city_id(city):
     data = json.loads(data.decode("utf-8"))
     return str(data[0]["Key"])
 
+
 def weatherinfo(city):
     payload = ''
     headers = {}
